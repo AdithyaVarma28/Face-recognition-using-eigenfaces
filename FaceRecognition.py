@@ -10,25 +10,26 @@ def image_matrix(directory):
     images=os.listdir(directory)
     matrix=[]
     for image in images:
-        image_path=os.path.join(directory,image)
-        matrix.append(flattening(image_path))
+        if image.lower().endswith('.jpeg'):
+            image_path=os.path.join(directory,image)
+            matrix.append(flattening(image_path))
     return np.array(matrix)
 
 def training():
     training_matrix=[]
-    name=[]
+    names=[]
     for person_name in os.listdir('Training Set'):
         person_directory=os.path.join('Training Set',person_name)
         if os.path.isdir(person_directory):
             person_matrix=image_matrix(person_directory)
             training_matrix.append(person_matrix)
-            name+=[person_name]*person_matrix.shape[0] 
-    training_matrix=np.concatenate(training_matrix) 
+            names+=[person_name]*person_matrix.shape[0]
+    training_matrix=np.concatenate(training_matrix)
     mean=np.mean(training_matrix,axis=0)
     centered_matrix=training_matrix-mean
     U,V,Vector=np.linalg.svd(centered_matrix,full_matrices=False)
     projected_matrix=np.dot(centered_matrix,Vector.T)
-    return mean,Vector,projected_matrix,name
+    return mean,Vector,projected_matrix,names
 
 def recognize_face(validation_matrix,mean,Vector,training_projected_matrix):
     centered_matrix=validation_matrix-mean
@@ -45,6 +46,6 @@ def image_recognition():
         nearest_index=np.argmin(euclidean_distances)
         recognized_name=names[nearest_index]
         print(f"Validation image: '{validation_image}', Recognized image: {recognized_name}")
-
-if __name__ == '__main__':
+            
+if __name__=='__main__':
     image_recognition()
