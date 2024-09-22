@@ -81,6 +81,10 @@ By organizing your dataset this way, the application can efficiently train and v
 - **Reporting Issues:** Please report any issues or bugs using the GitHub Issues tab.
 - **Submitting Pull Requests:** Fork the repository, make your changes, and submit a pull request with a description of your changes.
 
+## Related Work
+
+For further reading, you can refer to the foundational paper that inspired this project: [Eigenfaces for Recognition](https://sites.cs.ucsb.edu/~mturk/Papers/mturk-CVPR91.pdf).
+
 ## Directory Structure
 
 ```
