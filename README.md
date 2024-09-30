@@ -30,11 +30,7 @@ The FaceRecognition project is a Python application designed to recognize faces 
    ```bash
    pip install numpy opencv-python
    ```
-
-## Usage
-
-Sure! Here’s the updated section with the changes:
-
+   
 ## Prepare Your Dataset
 
 1. **Create the `Training Set` Directory:**
