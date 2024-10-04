@@ -15,7 +15,7 @@ The FaceRecognition project is a Python application designed to recognize faces 
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/YourUsername/FaceRecognition
+   git clone https://github.com/AdithyaVarma28/Face-recognition-using-eigenfaces
    ```
 2. **Navigate to the Project Directory:**
    ```bash
